@@ -1,4 +1,4 @@
-# Introduction
+# Machine learning-driven Heckmatt grading in facioscapulohumeral muscular dystrophy: A novel pathway for musculoskeletal ultrasound analysis
 
 This repository implements an automatic and reproducible pipeline for muscle ultrasound analysis intrducing a machine learning approach that integrates deep learning-based segmentation and classification with radiomics-driven Heckmatt grading. The goal is to enhance the objectivity and efficiency of muscle ultrasound evaluation, reducing reliance on time-consuming manual assessments and overcoming interobserver variability.
 
