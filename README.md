@@ -5,14 +5,14 @@ This repository implements an automatic and reproducible pipeline for muscle ult
 Heckmatt grading is usually performed by visual inspection by experienced clinincians. An example of Heckmatt grading is shown below:
 
 ![Figure1](Figure1.png)
-*Figure Caption: Examples of Heckmatt grading in the Rectus Femoris muscle. (A) Heckmatt score 1 (Normal): Normal muscle; (B) Heckmatt score 2 (Uncertain): Increased muscle echo intensity with distinct bone echo; (C) Heckmatt score 3 (Abnormal): Marked increased muscle echo intensity with a reduced bone echo; (D) Heckmatt score 4 (Abnormal): Very strong muscle echo and complete loss of bone echo.*
+*Examples of Heckmatt grading in the Rectus Femoris muscle. (A) Heckmatt score 1 (Normal): Normal muscle; (B) Heckmatt score 2 (Uncertain): Increased muscle echo intensity with distinct bone echo; (C) Heckmatt score 3 (Abnormal): Marked increased muscle echo intensity with a reduced bone echo; (D) Heckmatt score 4 (Abnormal): Very strong muscle echo and complete loss of bone echo.*
 
 The automated process consists of:
 - **Muscle Segmentation & Classification:** Using a multi-class K-Net architecture, the pipeline accurately differentiates and segments 16 muscle groups, achieving high Intersection over Union (IoU) scores across folds.
 - **Quantitative Heckmatt Grading:** Radiomics features are extracted from segmented muscles and their deeper regions, with an XGBoost classifier assigning a modified Heckmatt score (Normal, Uncertain, Abnormal). SHAP analysis further provides interpretability by pinpointing critical features driving the scoring decisions.
 
-![Figure2](Figure2.png)
-*Figure Caption: Overview of the project pipeline. (A) Three bilateral acquisitions per muscle, exemplified by Rectus Abdominis, Biceps Brachii, Tibialis Anterior, and Gastrocnemius Medialis. (B) Segmentation: Networks segment and classify muscles, extracting features from the Cross Sectional Area (green) and the deeper muscle region (red) using PyRadiomics. (C) Features are dimensionally reduced by averaging spatially robust metrics. (D) The classification model predicts the probability of the modified Heckmatt class, achieving up to 0.97 AUC for abnormal cases, thereby enhancing diagnostic consistency in neuromuscular disease evaluation, including FSHD.*
+![Figure2](Figure3.png)
+*Overview of the project pipeline. (A) Three bilateral acquisitions per muscle, exemplified by Rectus Abdominis, Biceps Brachii, Tibialis Anterior, and Gastrocnemius Medialis. (B) Segmentation: Networks segment and classify muscles, extracting features from the Cross Sectional Area (green) and the deeper muscle region (red) using PyRadiomics. (C) Features are dimensionally reduced by averaging spatially robust metrics. (D) The classification model predicts the probability of the modified Heckmatt class, achieving up to 0.97 AUC for abnormal cases, thereby enhancing diagnostic consistency in neuromuscular disease evaluation, including FSHD.*
 
 The repository is structured as follows:
 - **`mmsegmentation/`**: Contains deep learning code for muscle segmentation & classification with K-Net.
