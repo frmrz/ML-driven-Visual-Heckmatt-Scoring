@@ -1,3 +1,18 @@
+# Introduction
+
+This repository implements an automatic and reproducible pipeline for muscle ultrasound analysis intrducing a machine learning approach that integrates deep learning-based segmentation and classification with radiomics-driven Heckmatt grading. The goal is to enhance the objectivity and efficiency of muscle ultrasound evaluation, reducing reliance on time-consuming manual assessments and overcoming interobserver variability.
+
+The automated process consists of:
+- **Muscle Segmentation & Classification:** Using a multi-class K-Net architecture, the pipeline accurately differentiates and segments 16 muscle groups, achieving high Intersection over Union (IoU) scores across folds.
+- **Quantitative Heckmatt Grading:** Radiomics features are extracted from segmented muscles and their deeper regions, with an XGBoost classifier assigning a modified Heckmatt score (Normal, Uncertain, Abnormal). SHAP analysis further provides interpretability by pinpointing critical features driving the scoring decisions.
+
+The results demonstrate high segmentation accuracy and robust grading performance, with an Area Under Curve (AUC) of up to 0.97 for abnormal cases. Automating these tasks improves diagnostic consistency and supports clinical decision-making in neuromuscular disease evaluation, particularly for conditions such as facioscapulohumeral muscular dystrophy (FSHD).
+
+The repository is structured as follows:
+- **`mmsegmentation/`**: Contains deep learning code for muscle segmentation & classification with K-Net.
+- **`feature_extraction/`**: Scripts to extract texture/radiomics features and evaluate segmentation metrics.
+- **`prediction_heckmatt/`**: Implements Heckmatt scoring with XGBoost on the extracted radiomics features.
+
 
 ### 1. **`mmsegmentation/`**
 Contains **deep learning** code for muscle segmentation & classification with **K-Net** (based on [MMSegmentation](https://github.com/open-mmlab/mmsegmentation)):
@@ -85,10 +100,12 @@ Implements **Heckmatt scoring** with **XGBoost** on the extracted radiomics feat
 If you find this pipeline useful, please cite our paper:
 
 ```bibtex
-@article{marzola2024machine,
-  title={Machine Learning-driven Heckmatt Grading on an FSHD cohort:
-         A Novel Pathway for Musculoskeletal Ultrasound Analysis},
-  author={Marzola, Francesco and ...},
-  journal={Mendeley Data / Preprint / ...},
-  year={2024}
-}
+@article{MARZOLA2025,
+title = {Machine learning-driven Heckmatt grading in facioscapulohumeral muscular dystrophy: A novel pathway for musculoskeletal ultrasound analysis},
+journal = {Clinical Neurophysiology},
+year = {2025},
+issn = {1388-2457},
+doi = {https://doi.org/10.1016/j.clinph.2025.01.016},
+url = {https://www.sciencedirect.com/science/article/pii/S1388245725000367},
+author = {Francesco Marzola and Nens {van Alfen} and Jonne Doorduin and Kristen Mariko Meiburger},
+keywords = {Muscle ultrasound, Machine learning, Muscle segmentation, Heckmatt grading, Neuromuscular disease diagnosis}}
